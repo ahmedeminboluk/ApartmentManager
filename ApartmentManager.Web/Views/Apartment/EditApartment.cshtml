@@ -1,0 +1,64 @@
+﻿@model ApartmentManager.Web.DTOs.EditApartmentDto
+
+@{
+    ViewData["Title"] = "EditApartment";
+}
+
+<h1>Daire Düzenle</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditApartment">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="ApartmentBlock" class="control-label">Blok No</label>
+                <input asp-for="ApartmentBlock" class="form-control" />
+                <span asp-validation-for="ApartmentBlock" class="text-danger"></span>
+            </div>
+            <input type="hidden" name="Id" value="@Model.Id" />
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="Status" /> Dolu/Boş
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="Type" class="control-label">Ev Tipi</label>
+                <input asp-for="Type" class="form-control" />
+                <span asp-validation-for="Type" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Floor" class="control-label">Kat No</label>
+                <input asp-for="Floor" class="form-control" />
+                <span asp-validation-for="Floor" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ApartmentNumber" class="control-label">Daire No</label>
+                <input asp-for="ApartmentNumber" class="form-control" />
+                <span asp-validation-for="ApartmentNumber" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsOwner" /> Ev Sahibi/Kiracı
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="UserId">Kullanıcı</label>
+                <select asp-for="UserId" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.userList, "Id", "FullName", Model.UserId))">
+                    <option>Lütfen birini seçiniz</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-dark">Daire Listesi</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

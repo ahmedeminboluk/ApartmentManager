@@ -1,0 +1,39 @@
+<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>net5.0</TargetFramework>
+    <UserSecretsId>aspnet-ApartmentManager.Web-D2DECA7B-267D-4F08-8BF5-8404AEF98761</UserSecretsId>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="AutoMapper" Version="10.1.1" />
+    <PackageReference Include="AutoMapper.Extensions.Microsoft.DependencyInjection" Version="8.1.1" />
+    <PackageReference Include="Microsoft.AspNetCore.Diagnostics.EntityFrameworkCore" Version="5.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.EntityFrameworkCore" Version="5.0.7" />
+    <PackageReference Include="Microsoft.AspNetCore.Identity.UI" Version="5.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer" Version="5.0.7" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.Tools" Version="5.0.7" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="5.0.2" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Folder Include="Data\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\AdminLTE-master\.github\codeql\codeql-config.yml" />
+    <None Include="wwwroot\AdminLTE-master\.github\CONTRIBUTING.md" />
+    <None Include="wwwroot\AdminLTE-master\.github\dependabot.yml" />
+    <None Include="wwwroot\AdminLTE-master\.github\ISSUE_TEMPLATE\bug-report-for-adminlte-v3.1-x.md" />
+    <None Include="wwwroot\AdminLTE-master\.github\ISSUE_TEMPLATE\feature-request-for-adminlte-v4-x.md" />
+    <None Include="wwwroot\AdminLTE-master\.github\workflows\ci.yml" />
+    <None Include="wwwroot\AdminLTE-master\.github\workflows\codeql.yml" />
+    <None Include="wwwroot\AdminLTE-master\.github\workflows\docs.yml" />
+    <None Include="wwwroot\AdminLTE-master\.github\workflows\lint.yml" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\ApartmentManager.Service\ApartmentManager.Service.csproj" />
+  </ItemGroup>
+
+</Project>

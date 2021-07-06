@@ -1,0 +1,35 @@
+﻿@using ApartmentManager.Web.DTOs
+@model  List<UserDto>
+
+    <br />
+<div>
+    <a href="/User/AddUser/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Kullanıcı Ekle</a>
+</div>
+<br />
+<table class="table table-primary">
+    <tr>
+        <th>Adı</th>
+        <th>Tc No</th>
+        <th>Email</th>
+        <th>Telefon Numarası</th>
+        <th>Araba Plakası</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>@item.FullName</td>
+            <td>@item.TcNo</td>
+            <td>@item.Email</td>
+            <td>@item.PhoneNumber</td>
+            <td>@item.CarPlate</td>
+            <td>
+                <a href="/User/DeleteUser?email=@item.Email" class="btn btn-danger">Sil</a>
+                <a href="/User/EditUser?email=@item.Email" class="btn btn-warning">Düzenle</a>
+            </td>
+        </tr>
+    }
+</table>
+
+
+

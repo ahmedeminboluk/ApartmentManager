@@ -1,0 +1,75 @@
+﻿@using ApartmentManager.Web.DTOs
+@model List<ListApartmentWithExpenseDto>
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Borçlarım</h1>
+
+<table class="table table-primary">
+    <tr>
+        <th>Daire</th>
+        <th>Aidat</th>
+        <th>Elektrik</th>
+        <th>Su</th>
+        <th>Isınma</th>
+        <th>Ödeme</th>
+        <th>Son Ödeme Tarihi</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+
+        <td>
+            @item.ApartmentBlock - Daire @item.ApartmentNumber
+        </td>
+        @foreach (var expense in item.Expenses)
+        {
+            <tr>
+                <td></td>
+                <td>
+                    @expense.Dues
+                </td>
+                <td>
+                    @expense.Electric
+                </td>
+                <td>
+                    @expense.Water
+                </td>
+                <td>
+                    @expense.Gas
+                </td>
+                <td>
+                    @expense.IsPaid
+                </td>
+                <td>
+                    @expense.ExpenseDate
+                </td>
+                <td>
+                </td>
+            </tr>
+        }
+        @*<tr>
+                <td>@item.Apartment.ApartmentBlock - Daire @item.Apartment.ApartmentNumber</td>
+                <td>@item.Dues</td>
+                <td>@item.Electric</td>
+                <td>@item.Water</td>
+                <td>@item.Gas</td>
+                @if (item.IsPaid == true)
+                {
+                    <td>Ödendi</td>
+                }
+                else
+                {
+                    <td>Ödenmedi</td>
+                }
+                <td>@item.ExpenseDate.ToString("dd.MM.yyyy")</td>
+                <td>
+
+                </td>
+            </tr>*@
+
+    }
+</table>
+

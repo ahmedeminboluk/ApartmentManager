@@ -1,0 +1,39 @@
+﻿@model IEnumerable<ApartmentManager.Web.DTOs.ListMessageDto>
+
+@{
+    ViewData["Title"] = "InBox";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Gelen Kutusu</h1>
+<hr />
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                Konu
+            </th>
+            <th>
+                Mesaj
+            </th>
+            <th>
+                Gönderen
+            </th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @item.Subject
+            </td>
+            <td>
+                @item.Content
+            </td>
+            <td>
+                @item.Sender
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

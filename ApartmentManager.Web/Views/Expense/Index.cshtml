@@ -1,0 +1,45 @@
+﻿@model IEnumerable<ApartmentManager.Web.DTOs.ListExpenseDto>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Borç Listesi</h1>
+<br />
+<a href="/Expense/AddAllExpense/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Toplu Borç Ekle</a>
+<br />
+<table class="table table-primary">
+    <tr>
+        <th>Daire</th>
+        <th>Aidat</th>
+        <th>Elektrik</th>
+        <th>Su</th>
+        <th>Isınma</th>
+        <th>Ödeme</th>
+        <th>Son Ödeme Tarihi</th>
+        <th>İşlemler</th>
+    </tr>
+    @foreach (var item in Model)
+    {
+<tr>
+    <td>@item.Apartment.ApartmentBlock - Daire @item.Apartment.ApartmentNumber</td>
+    <td>@item.Dues</td>
+    <td>@item.Electric</td>
+    <td>@item.Water</td>
+    <td>@item.Gas</td>
+    @if (item.IsPaid == true)
+    {
+        <td>Ödendi</td>
+    }
+    else
+    {
+        <td>Ödenmedi</td>
+    }
+    <td>@item.ExpenseDate.ToString("dd.MM.yyyy")</td>
+    <td>
+        <a href="/Expense/DeleteExpense?id=@item.Id" class="btn btn-danger">Sil</a>
+        <a href="/Expense/EditExpense?id=@item.Id" class="btn btn-warning">Düzenle</a>
+    </td>
+</tr>
+    }
+</table>

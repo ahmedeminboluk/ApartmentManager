@@ -1,0 +1,66 @@
+﻿@model ApartmentManager.Web.DTOs.EditExpenseDto
+
+@{
+    ViewData["Title"] = "EditExpense";
+}
+
+<h1>Borç Düzenle</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="EditExpense">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Id" class="form-control" />
+            </div>
+            <div class="form-group">
+                <label asp-for="ApartmentId">Kullanıcı</label>
+                <select asp-for="ApartmentId" class="form-control"
+                        asp-items="@(new SelectList(ViewBag.apartmentList, "Id","BlockAndNumber", Model.ApartmentId))">
+                    <option>Lütfen birini seçiniz</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label asp-for="Dues" class="control-label">Aidat</label>
+                <input asp-for="Dues" class="form-control" />
+                <span asp-validation-for="Dues" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Electric" class="control-label">Elektrik</label>
+                <input asp-for="Electric" class="form-control" />
+                <span asp-validation-for="Electric" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Water" class="control-label">Su</label>
+                <input asp-for="Water" class="form-control" />
+                <span asp-validation-for="Water" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Gas" class="control-label">Isınma</label>
+                <input asp-for="Gas" class="form-control" />
+                <span asp-validation-for="Gas" class="text-danger"></span>
+            </div>
+            <div class="form-group form-check">
+                <label class="form-check-label">
+                    <input class="form-check-input" asp-for="IsPaid" /> Ödendi/Ödenmedi
+                </label>
+            </div>
+            <div class="form-group">
+                <label asp-for="ExpenseDate" class="control-label">Son Ödeme Tarihi</label>
+                <input asp-for="ExpenseDate" class="form-control" />
+                <span asp-validation-for="ExpenseDate" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Kaydet" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index" class="btn btn-dark">Borç Listesi</a>
+</div>
+
+@*@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}*@

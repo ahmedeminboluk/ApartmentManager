@@ -1,0 +1,36 @@
+﻿@model ApartmentManager.Web.DTOs.MessageDto
+
+@{
+    ViewData["Title"] = "UserAddMessage";
+    Layout = "~/Views/Shared/_UserLayout.cshtml";
+}
+
+<h1>Mesaj Gönder</h1>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="UserAddMessage">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="Subject" class="control-label">Konu</label>
+                <input asp-for="Subject" class="form-control" />
+                <span asp-validation-for="Subject" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Content" class="control-label">Mesaj</label>
+                <input asp-for="Content" class="form-control" />
+                <span asp-validation-for="Content" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Sender" class="form-control" value="@User.Identity.Name"/>
+            </div>
+            <div class="form-group">
+                <input type="hidden" asp-for="Receiver" class="form-control" value="admin@admin.com"/>
+            </div>
+            <div class="form-group">
+                <input type="submit" value="Gönder" class="btn btn-success" />
+            </div>
+        </form>
+    </div>
+</div>
+
