@@ -1,4 +1,6 @@
+using ApartmentManager.Service.CreditCardService;
 using ApartmentManager.Service.Dependencies;
+using FluentValidation.AspNetCore;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -29,12 +31,17 @@ namespace ApartmentManager.Web
         public void ConfigureServices(IServiceCollection services)
         {
             services.RegisterServices(Configuration);
+
+            services.AddHttpClient<ICreditCardService, CreditCardService>(options => {
+                options.BaseAddress = new Uri(Configuration["CreditCard:Url"]);
+            });
+
             services.ConfigureApplicationCookie(options => {
                 options.LoginPath = "/Auth/Login";
                 options.LogoutPath = "/Auth/Logout";
             });
             services.AddAutoMapper(Assembly.GetExecutingAssembly());
-            services.AddControllersWithViews();
+            services.AddControllersWithViews().AddFluentValidation(x => x.RegisterValidatorsFromAssemblyContaining<Startup>()); 
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

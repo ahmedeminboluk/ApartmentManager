@@ -4,6 +4,7 @@
     ViewData["Title"] = "AddMessage";
 }
 
+
 <h1>Mesaj Gönder</h1>
 <hr />
 <div class="row">
@@ -21,7 +22,7 @@
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="hidden" asp-for="Sender" class="form-control" value="admin@admin.com"/>
+                <input type="hidden" asp-for="Sender" class="form-control" value="admin@admin.com" />
             </div>
             <div class="form-group">
                 <label asp-for="Receiver">Kullanıcı</label>
@@ -38,5 +39,5 @@
 </div>
 
 @*@section Scripts {
-    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
-}*@
+        @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+    }*@

@@ -1,4 +1,5 @@
 ﻿using ApartmentManager.Core.Models;
+using ApartmentManager.Data.Seeds;
 using Microsoft.AspNetCore.Identity.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore;
 using System;
@@ -22,6 +23,8 @@ namespace ApartmentManager.Data.Context
         protected override void OnModelCreating(ModelBuilder builder)
         {
             builder.ApplyConfiguration(new AdminSeed());
+            builder.ApplyConfiguration(new RoleSeed());
+            builder.ApplyConfiguration(new AdminRoleSeed());
             base.OnModelCreating(builder);
         }
     }

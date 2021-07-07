@@ -47,6 +47,14 @@
                     @expense.ExpenseDate
                 </td>
                 <td>
+                    @if (expense.IsPaid == true)
+                    {
+                        <span class="btn btn-success">Ödendi</span>
+                    }
+                    else
+                    {
+                        <a href="/Payment/Payment?id=@expense.Id" class="btn btn-warning">Ödeme Yap</a>
+                    }
                 </td>
             </tr>
         }

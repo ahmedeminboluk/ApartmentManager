@@ -21,8 +21,14 @@ namespace ApartmentManager.Data
                 EmailConfirmed = false,
                 TcNo = "12345678911",
                 FullName = "Admin",
-                UserName = "admin@admin.com",
+                UserName = "Admin",
+                NormalizedEmail = "ADMIN@ADMIN.COM",
+                CarPlate = "34 AA 33",
+                PasswordHash = "AQAAAAEAACcQAAAAEPrUVh6ka22DMBtGoUnY6ordfeY1ag3wwg3IY1+l/waeRNZ3b/AS6a4BrAdLauipEA==",
+                SecurityStamp = "9c9e5864-93f7-4c5b-8326-9d8a1f6d0302",
+                ConcurrencyStamp = "ee6f5d33-2ebd-4c6f-bfa0-a3a5bc06653f",
                 NormalizedUserName = "ADMIN"
+                
             };
 
             PasswordHasher<User> ph = new PasswordHasher<User>();

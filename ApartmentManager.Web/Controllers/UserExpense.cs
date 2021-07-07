@@ -1,7 +1,9 @@
 ﻿using ApartmentManager.Core.Models;
 using ApartmentManager.Core.Services;
 using ApartmentManager.Web.DTOs;
+using ApartmentManager.Web.Enum;
 using AutoMapper;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 using System;
 using System.Collections.Generic;
@@ -10,6 +12,7 @@ using System.Threading.Tasks;
 
 namespace ApartmentManager.Web.Controllers
 {
+    [Authorize(Roles = Roles.User)]
     public class UserExpense : Controller
     {
         private readonly IUserService _userService;

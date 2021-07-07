@@ -5,6 +5,7 @@ using ApartmentManager.Core.Services;
 using ApartmentManager.Data.Context;
 using ApartmentManager.Data.Repositories;
 using ApartmentManager.Data.UnitOfWork;
+using ApartmentManager.Service.CreditCardService;
 using ApartmentManager.Service.Services;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.EntityFrameworkCore;
@@ -44,6 +45,8 @@ namespace ApartmentManager.Service.Dependencies
             services.AddScoped<IUnitofWork, UnitOfWork>();
             services.AddScoped(typeof(IRepository<>), typeof(Repository<>));
             services.AddScoped(typeof(IService<>), typeof(Service<>));
+
+            
 
             return services;
         }

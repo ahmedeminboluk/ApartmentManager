@@ -4,14 +4,16 @@ using ApartmentManager.Data.Context;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.EntityFrameworkCore.Infrastructure;
 using Microsoft.EntityFrameworkCore.Metadata;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 
 namespace ApartmentManager.Data.Migrations
 {
     [DbContext(typeof(ApartmentManagerDbContext))]
-    partial class ApartmentManagerDbContextModelSnapshot : ModelSnapshot
+    [Migration("20210707220554_mig_add_seed")]
+    partial class mig_add_seed
     {
-        protected override void BuildModel(ModelBuilder modelBuilder)
+        protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
 #pragma warning disable 612, 618
             modelBuilder

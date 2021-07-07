@@ -1,4 +1,5 @@
 ﻿using ApartmentManager.Core.Models;
+using ApartmentManager.Service.Dto;
 using ApartmentManager.Web.DTOs;
 using AutoMapper;
 using System;
@@ -24,6 +25,7 @@ namespace ApartmentManager.Web.MapProfiles
             CreateMap<Message, MessageDto>().ReverseMap();
             CreateMap<Message, ListMessageDto>().ReverseMap();
             CreateMap<Apartment, ListApartmentWithExpenseDto>().ReverseMap();
+            CreateMap<CreditCardDto, CreditCardExpenseDto>().ReverseMap();
 
         }
     }

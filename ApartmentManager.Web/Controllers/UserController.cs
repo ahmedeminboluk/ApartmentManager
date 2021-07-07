@@ -14,7 +14,7 @@ using System.Threading.Tasks;
 
 namespace ApartmentManager.Web.Controllers
 {
-    
+    [Authorize(Roles = Roles.Admin)]
     public class UserController : Controller
     {
         private readonly IUserService _userService;
@@ -39,6 +39,8 @@ namespace ApartmentManager.Web.Controllers
             return View(detailUser);
         }
 
+        /*
+         * [AllowAnonymous]
         public async Task<IActionResult> CreateRole()
         {
             await _roleManager.CreateAsync(new Role() { Name = Roles.Admin });
@@ -46,15 +48,17 @@ namespace ApartmentManager.Web.Controllers
 
             return View();
         }
-
+        
+        [AllowAnonymous]
         public async Task<IActionResult> AddAdmin()
         {
-            await _userManager.CreateAsync(new Core.Models.User { FullName = "Admin", Email = "admin@admin.com", UserName = "admin@admin.com", TcNo="12345678911", CarPlate = "34 AA 321"}, "Admin123+");
+            await _userManager.CreateAsync(new Core.Models.User { FullName = "Admin", Email = "admin@admin.com", UserName = "Admin", TcNo="12345678911", CarPlate = "34 AA 321"}, "Admin123+");
 
             var admin = await _userManager.FindByEmailAsync("admin@admin.com");
             await _userManager.AddToRoleAsync(admin, Roles.Admin);
             return View();
         }
+        */
 
         public IActionResult AddUser()
         {
@@ -68,7 +72,6 @@ namespace ApartmentManager.Web.Controllers
             {
                 return View(userDto);
             }
-            //userDto.UserName = userDto.FullName;
             var result = await _userManager.CreateAsync(_mapper.Map<User>(userDto), "1234Aa+");
             if (result.Succeeded)
             {

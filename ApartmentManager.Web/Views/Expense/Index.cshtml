@@ -7,7 +7,7 @@
 <h1>Borç Listesi</h1>
 <br />
 <a href="/Expense/AddAllExpense/" class="btn btn-primary btn-lg active" role="button" aria-pressed="true">Toplu Borç Ekle</a>
-<br />
+<br /><br />
 <table class="table table-primary">
     <tr>
         <th>Daire</th>
@@ -29,11 +29,11 @@
     <td>@item.Gas</td>
     @if (item.IsPaid == true)
     {
-        <td>Ödendi</td>
+        <td><span class="badge bg-success">Ödendi</span></td>
     }
     else
     {
-        <td>Ödenmedi</td>
+        <td><span class="badge bg-dark">Ödenmedi</span></td>
     }
     <td>@item.ExpenseDate.ToString("dd.MM.yyyy")</td>
     <td>

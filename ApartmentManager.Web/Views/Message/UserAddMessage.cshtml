@@ -5,6 +5,11 @@
     Layout = "~/Views/Shared/_UserLayout.cshtml";
 }
 
+<script src="~/lib/jquery/dist/jquery.js"></script>
+<script src="~/lib/jquery-validation/dist/additional-methods.js"></script>
+<script src="~/lib/jquery-validation/dist/jquery.validate.js"></script>
+<script src="~/lib/jquery-validation-unobtrusive/jquery.validate.unobtrusive.js"></script>
+
 <h1>Mesaj Gönder</h1>
 <hr />
 <div class="row">
@@ -22,10 +27,10 @@
                 <span asp-validation-for="Content" class="text-danger"></span>
             </div>
             <div class="form-group">
-                <input type="hidden" asp-for="Sender" class="form-control" value="@User.Identity.Name"/>
+                <input type="hidden" asp-for="Sender" class="form-control" value="@User.Identity.Name" />
             </div>
             <div class="form-group">
-                <input type="hidden" asp-for="Receiver" class="form-control" value="admin@admin.com"/>
+                <input type="hidden" asp-for="Receiver" class="form-control" value="admin@admin.com" />
             </div>
             <div class="form-group">
                 <input type="submit" value="Gönder" class="btn btn-success" />
