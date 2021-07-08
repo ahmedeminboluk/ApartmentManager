@@ -1,5 +1,5 @@
 # ApartmentManager
-Site yöneticisinin ve site sakinlerinin kullandığı, işlemlerini yapabildiği bir yönetim uygulamasıdır.
+Site yöneticisinin ve site sakinlerinin kullandığı, işlemlerini yapabildiği bir yönetim uygulamasıdır. Default bir admin hesabı tanımlıdır. Kullanıcı oluşturulduğunda "1234Aa+" şifresi atanır.
 ### Admin - Yönetici
 * Kullanıcı  ekleme, düzenleme ve silme
 * Daire ekleme, düzenleme ve silme
@@ -25,6 +25,11 @@ işlemlerini yapabilir.
 * Database Seeding
 * Automapper
 * Fluent Validation
+
+#### Admin Giriş
+* admin@admin.com
+* Admin123+
+
 
 ### Uygulama Ekran Görüntüleri
 
